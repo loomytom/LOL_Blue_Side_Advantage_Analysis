@@ -1,1 +1,2 @@
-# LOL_Blue_Side_Advantage_Analysis
+# League of Legends Red vs Blue Side Analysis
+This project is to examine differences between red and blue side in league of legends and hopefully draw conclusions through analysis
