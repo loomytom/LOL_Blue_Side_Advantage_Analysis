@@ -1,1 +1,1 @@
-# LOL_Blue_Side_Advtange_Analysis
+# LOL_Blue_Side_Advantage_Analysis
