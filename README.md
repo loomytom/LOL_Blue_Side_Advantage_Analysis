@@ -36,6 +36,13 @@ The data that was used for this analysis was pulled from the professional matche
 
 # Data Cleaning 
 
-The first step towards cleaning the data was to only grab data that is considered 'complete', which was under the column 'datacompleteness' in the original dataframe. The column was divided into 'complete' and 'partial' so the data was queried to only use rows that had complete data. The next step was to query out each player's performance and only grab information regarding the team for each game. This was done by looking at the 'position' column in the dataframe and setting it to only grab position = 'team'. The last step towarsd cleaning the data was to query only the relevant columns that were listed above. This is what the cleaned Dataframe looks like:
+### 1. Filtering for Complete Data
+The first step towards cleaning the data was to only grab data that is considered 'complete', which was under the column 'datacompleteness' in the original dataframe. The column was divided into 'complete' and 'partial' so the data was queried to only use rows that had complete data. 
+
+### 2. Aggregating Team-Level Data
+The next step was to query out each player's performance and only grab information regarding the team for each game. This was done by looking at the 'position' column in the dataframe and setting it to only grab position = 'team'.
+
+### 3. Selecting Relevant Columns
+The last step towarsd cleaning the data was to query only the relevant columns that were listed above. This is what the cleaned Dataframe looks like:
 
 
