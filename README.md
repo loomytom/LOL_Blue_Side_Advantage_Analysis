@@ -1,7 +1,6 @@
-layout: splash
-title: "League of Legends Red vs Blue Side Analysis"
-subtitle: "Statistical Exploration and Insights"
----
+
+# League of Legends Red vs Blue Side Analysis
+Statistical Exploration and Insights
 
 # Welcome!
 
