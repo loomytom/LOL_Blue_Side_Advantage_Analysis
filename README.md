@@ -87,6 +87,15 @@ These were some of the interesting aggregates that were found when grouping by r
 From this above we can see that winning teams take more dragons, heralds, and barons, but also more likely to take the first dragon compared to teams that lost. This makes sense because taking objectives helps teams get ahead in the game, and contributing to them being stronger than the enemy team.
 
 # NMAR Analysis 
-In looking at the columns of interest, the column 'firstdragon', could be NMAR because the value of firstdragon depends on itself. For exmaple, if firstdragon is missing, it is possible that the team did not take the first dragon due to their strategy or simply did not try and contest the dragon. In this case the missingness of firstdragon is dependent on the value of the column, which would make it NMAR.
+In looking at the columns of interest, the column **firstdragon**, could be NMAR because the value of **firstdragon** depends on itself. For exmaple, if **firstdragon** is missing, it is possible that the team did not take the first dragon due to their strategy or simply did not try and contest the dragon. In this case the missingness of **firstdragon** is dependent on the value of the column, which would make it NMAR.
+
+# Missingness Dependency 
+To test for missingnes, the column **golddiffat25** was tested to see if its missingness was dependent on any columns. The significance level that was chosen for these tests was a = 0.05 and the test statistic was Kolmogorov–Smirnov.
+
+The first column tested with **golddiffat25** was the column **baron**.
+**Null Hypothesis**: The distribution of barons is the same when **golddiffat25** is missing then when it is not missing.
+**Alternative Hypothesis**: The distribution of barons is different when **golddiffat25** is missing than when it is not missing.
+
+Below is a graph showing what the distribution of values look like:
 
 
