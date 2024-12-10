@@ -45,7 +45,6 @@ The next step was to query out each player's performance and only grab informati
 ### 3. Selecting Relevant Columns
 The last step towards cleaning the data was to query only the relevant columns that were listed above. This is what the cleaned Dataframe looks like:
 
-  
 | Side  | Result | First Dragon | Heralds | Dragons | Barons | GoldDiff10 | GoldDiff15 | GoldDiff20 | GoldDiff25 |
 |-------|--------|--------------|---------|---------|--------|------------|------------|------------|------------|
 | Blue  | 0      | 0            | 2       | 1       | 0      | 1523       | 107        | -944       | 88         |
