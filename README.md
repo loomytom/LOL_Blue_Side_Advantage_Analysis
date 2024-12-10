@@ -78,12 +78,11 @@ This bar chart shows that blue side teams take more rift heralds when they win, 
 
 # Interesting Aggregates
 These were some of the interesting aggregates that were found when grouping by result, either win or loss, and summing the columns. 
-  
+
 |   result |   firstdragon |   heralds |   dragons |   barons |
 |---------:|--------------:|----------:|----------:|---------:|
 |        0 |          4491 |      8146 |     15394 |     2372 |
 |        1 |          6129 |     12817 |     32334 |    11971 |
-
 
 From this above we can see that winning teams take more dragons, heralds, and barons, but also more likely to take the first dragon compared to teams that lost. This makes sense because taking objectives helps teams get ahead in the game, and contributing to them being stronger than the enemy team.
 
