@@ -43,8 +43,59 @@ The first step towards cleaning the data was to only grab data that is considere
 The next step was to query out each player's performance and only grab information regarding the team for each game. This was done by looking at the 'position' column in the dataframe and setting it to only grab position = 'team'.
 
 ### 3. Selecting Relevant Columns
-The last step towarsd cleaning the data was to query only the relevant columns that were listed above. This is what the cleaned Dataframe looks like:
-it will work
+The last step towards cleaning the data was to query only the relevant columns that were listed above. This is what the cleaned Dataframe looks like:
 
+  
+| Side  | Result | First Dragon | Heralds | Dragons | Barons | GoldDiff10 | GoldDiff15 | GoldDiff20 | GoldDiff25 |
+|-------|--------|--------------|---------|---------|--------|------------|------------|------------|------------|
+| Blue  | 0      | 0            | 2       | 1       | 0      | 1523       | 107        | -944       | 88         |
+| Red   | 1      | 1            | 0       | 3       | 0      | -1523      | -107       | 944        | -88        |
+| Blue  | 0      | 0            | 1       | 1       | 0      | -1619      | -1763      | -5140      | -7280      |
+| Red   | 1      | 1            | 1       | 4       | 2      | 1619       | 1763       | 5140       | 7280       |
+| Blue  | 1      | 1            | 1       | 1       | 4      | -103       | 1191       | 1744       | 4145       |
+
+# Univariate Analysis 
+The first analysis that was performed was looking at overall wins on blue side vs red side 
+<iframe
+  src="assets/win_rate_sides.html"
+  width="600"
+  height="400"
+  frameborder="0"
+></iframe>
+
+This pie chart shows that there is a 4.6 point difference between win rates of teams on blue side to red side. From the graph, it shows that teams playing on blue side win more than teams playing on red side. 
+
+# Bivariate Analysis 
+The second analysis that was done looked at how many rift heralds each team took when they won and when they lost
+<iframe
+  src="assets/heralds_sides.html"
+  width="600"
+  height="400"
+  frameborder="0"
+></iframe>
+
+This bar chart shows that blue side teams take more rift heralds when they win, but they also take more rift heralds when they lose compared to red side. No matter win or lose, on average blue side will take more rift heralds than red side.
+
+# Interesting Aggregates
+These were some of the interesting aggregates that were found when grouping by result, either win or loss, and summing the columns. 
+
+|   result |   firstdragon |   heralds |   dragons |   barons |
+|---------:|--------------:|----------:|----------:|---------:|
+|        0 |          4491 |      8146 |     15394 |     2372 |
+|        1 |          6129 |     12817 |     32334 |    11971 |
+
+From this above we can see that winning teams take more dragons, heralds, and barons, but also more likely to take the first dragon compared to teams that lost. This makes sense because taking objectives helps teams get ahead in the game, and contributing to them being stronger than the enemy team.
+
+# NMAR Analysis 
+In looking at the columns of interest, the column **firstdragon**, could be NMAR because the value of **firstdragon** depends on itself. For exmaple, if **firstdragon** is missing, it is possible that the team did not take the first dragon due to their strategy or simply did not try and contest the dragon. In this case the missingness of **firstdragon** is dependent on the value of the column, which would make it NMAR.
+
+# Missingness Dependency 
+To test for missingnes, the column **golddiffat25** was tested to see if its missingness was dependent on any columns. The significance level that was chosen for these tests was a = 0.05 and the test statistic was Kolmogorov–Smirnov.
+
+The first column tested with **golddiffat25** was the column **baron**.
+**Null Hypothesis**: The distribution of barons is the same when **golddiffat25** is missing then when it is not missing.
+**Alternative Hypothesis**: The distribution of barons is different when **golddiffat25** is missing than when it is not missing.
+
+Below is a graph showing what the distribution of values look like:
 
 
