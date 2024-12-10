@@ -57,8 +57,8 @@ The last step towards cleaning the data was to query only the relevant columns t
 The first analysis that was performed was looking at overall wins on blue side vs red side 
 <iframe
   src="assets/win_rate_sides.html"
-  width="600"
-  height="400"
+  width="700"
+  height="500"
   frameborder="0"
 ></iframe>
 
@@ -68,8 +68,8 @@ This pie chart shows that there is a 4.6 point difference between win rates of t
 The second analysis that was done looked at how many rift heralds each team took when they won and when they lost
 <iframe
   src="assets/heralds_sides.html"
-  width="600"
-  height="400"
+  width="700"
+  height="500"
   frameborder="0"
 ></iframe>
 
@@ -92,9 +92,47 @@ In looking at the columns of interest, the column **firstdragon**, could be NMAR
 To test for missingnes, the column **golddiffat25** was tested to see if its missingness was dependent on any columns. The significance level that was chosen for these tests was a = 0.05 and the test statistic was Kolmogorov–Smirnov.
 
 The first column tested with **golddiffat25** was the column **baron**.
-**Null Hypothesis**: The distribution of barons is the same when **golddiffat25** is missing then when it is not missing.
-**Alternative Hypothesis**: The distribution of barons is different when **golddiffat25** is missing than when it is not missing.
+
+**Null Hypothesis**: The distribution of **barons** is the same when **golddiffat25** is missing then when it is not missing.
+
+**Alternative Hypothesis**: The distribution of **barons** is different when **golddiffat25** is missing than when it is not missing.
 
 Below is a graph showing what the distribution of values look like:
+<iframe
+  src="assets/baron_missing.html"
+  width="700"
+  height="500"
+  frameborder="0"
+></iframe>
+
+From the graph, it can be seen that observed difference is much larger than any of the tests. The p-value was 0.0, lower than the 0.05 threshold, showing that it is statistically significant, or in other words, the missingness of **golddiffat5** is related to the **barons** column. This makes sense because if there are a lot of baron's taken, the game likely ran longer than 25 minutes because the first baron is spawned in at 20 minutes. 
+
+The second column tested with **golddiffat25** was the column **firstdragon**.
+
+**Null Hypothesis**: The distribution of **firstdragon** is the same when **golddiffat25** is missing then when it is not missing.
+
+**Alternative Hypothesis**: The distribution of **firstdragons** is different when **golddiffat25** is missing than when it is not missing.
+
+Below is a graph showing what the distribution of values look like:
+<iframe
+  src="assets/first_dragon_missing.html"
+  width="700"
+  height="500"
+  frameborder="0"
+></iframe>
+
+From the graph, it can be seen that observed difference is smaller than most of the permuted tests. The p-value was 0.928, above the 0.05 threshold, showing that it is not statistically significant, or in other words, the missingness of **golddiffat5** is not related to the **firstdragon** column. 
+
+# Hypothesis Testing
+
+For the hypothesis test, the goal was to find out if there is a significant difference between win rates on blue side and win rates on red side. This is important to understanding possible biases in League of Legends and being able to address them to ensure fairness in gameplay. 
+
+**Null Hypothesis**: The win rate of teams on Blue side is the same as the win rate of teams on Red side.
+
+**Alternative Hypothesis**: The win rate of teams on Blue side is greater than the win rate of teams on Red side.
+
+**Test Statistic**: Difference in mean
+
+**Significance Level**: 0.05
 
 
