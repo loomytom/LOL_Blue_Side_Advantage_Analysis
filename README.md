@@ -44,7 +44,7 @@ The next step was to query out each player's performance and only grab informati
 
 ### 3. Selecting Relevant Columns
 The last step towarsd cleaning the data was to query only the relevant columns that were listed above. This is what the cleaned Dataframe looks like:
-hahaha
+it will work
 
 
 
