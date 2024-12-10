@@ -44,14 +44,17 @@ The next step was to query out each player's performance and only grab informati
 
 ### 3. Selecting Relevant Columns
 The last step towarsd cleaning the data was to query only the relevant columns that were listed above. This is what the cleaned Dataframe looks like:
+
 <div style="overflow-x: auto;">
-| side   |   result |   firstdragon |   heralds |   dragons |   barons |   golddiffat10 |   golddiffat15 |   golddiffat20 |   golddiffat25 |
-|:-------|---------:|--------------:|----------:|----------:|---------:|---------------:|---------------:|---------------:|---------------:|
-| Blue   |        0 |             0 |         2 |         1 |        0 |           1523 |            107 |           -944 |             88 |
-| Red    |        1 |             1 |         0 |         3 |        0 |          -1523 |           -107 |            944 |            -88 |
-| Blue   |        0 |             0 |         1 |         1 |        0 |          -1619 |          -1763 |          -5140 |          -7280 |
-| Red    |        1 |             1 |         1 |         4 |        2 |           1619 |           1763 |           5140 |           7280 |
-| Blue   |        1 |             1 |         1 |         4 |        1 |           -103 |           1191 |           1744 |           4145 |
+  
+| Side  | Result | First Dragon | Heralds | Dragons | Barons | GoldDiff10 | GoldDiff15 | GoldDiff20 | GoldDiff25 |
+|-------|--------|--------------|---------|---------|--------|------------|------------|------------|------------|
+| Blue  | 0      | 0            | 2       | 1       | 0      | 1523       | 107        | -944       | 88         |
+| Red   | 1      | 1            | 0       | 3       | 0      | -1523      | -107       | 944        | -88        |
+| Blue  | 0      | 0            | 1       | 1       | 0      | -1619      | -1763      | -5140      | -7280      |
+| Red   | 1      | 1            | 1       | 4       | 2      | 1619       | 1763       | 5140       | 7280       |
+| Blue  | 1      | 1            | 1       | 1       | 4      | -103       | 1191       | 1744       | 4145       |
+
 </div>
 # Univariate Analysis 
 The first analysis that was performed was looking at overall wins on blue side vs red side 
@@ -74,6 +77,9 @@ The second analysis that was done looked at how many rift heralds each team took
 ></iframe>
 
 This bar chart shows that blue side teams take more rift heralds when they win, but they also take more rift heralds when they lose compared to red side. No matter win or lose, on average blue side will take more rift heralds than red side.
+
+# Interesting Aggregates
+
 
 
 
