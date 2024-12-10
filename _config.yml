@@ -1,3 +1,16 @@
 remote_theme: pages-themes/minimalist@v0.2.0
 plugins:
   - jekyll-remote-theme
+
+
+.button-like {
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-weight: bold;
+    color: #333;
+    display: inline-block;
+    margin: 2px 0; /* Optional: Adds spacing */
+    text-align: center; /* Ensures centered text */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+}
