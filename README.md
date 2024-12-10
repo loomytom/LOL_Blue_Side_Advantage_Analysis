@@ -45,7 +45,7 @@ The next step was to query out each player's performance and only grab informati
 ### 3. Selecting Relevant Columns
 The last step towards cleaning the data was to query only the relevant columns that were listed above. This is what the cleaned Dataframe looks like:
 
-<div style="overflow-x: auto;">
+<div class="scrollable-table">
   
 | Side  | Result | First Dragon | Heralds | Dragons | Barons | GoldDiff10 | GoldDiff15 | GoldDiff20 | GoldDiff25 |
 |-------|--------|--------------|---------|---------|--------|------------|------------|------------|------------|
@@ -80,16 +80,14 @@ This bar chart shows that blue side teams take more rift heralds when they win, 
 
 # Interesting Aggregates
 These were some of the interesting aggregates that were found when grouping by result, either win or loss, and summing the columns. 
-<div style="overflow-x: auto;">
   
 |   result |   firstdragon |   heralds |   dragons |   barons |
 |---------:|--------------:|----------:|----------:|---------:|
 |        0 |          4491 |      8146 |     15394 |     2372 |
 |        1 |          6129 |     12817 |     32334 |    11971 |
 
-</div>
 
 From this above we can see that winning teams take more dragons, heralds, and barons, but also more likely to take the first dragon compared to teams that lost. This makes sense because taking objectives helps teams get ahead in the game, and contributing to them being stronger than the enemy team.
 
-
-
+# NMAR Analysis 
+In looking at the columns of interest, the column golddiff at 25, seems to be 
