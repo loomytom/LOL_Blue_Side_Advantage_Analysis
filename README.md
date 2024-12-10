@@ -62,5 +62,20 @@ The first analysis that was performed was looking at overall wins on blue side v
   frameborder="0"
 ></iframe>
 
+This pie chart shows that there is a 4.6 point difference between win rates of teams on blue side to red side. From the graph, it shows that teams playing on blue side win more than teams playing on red side. 
+
+# Bivariate Analysis 
+The second analysis that was done looked at how many rift heralds each team took when they won and when they lost
+<iframe
+  src="assets/heralds_sides.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+This bar chart shows that blue side teams take more rift heralds when they win, but they also take more rift heralds when they lose compared to red side. No matter win or lose, on average blue side wil take more rift heralds than red side.
+
+
+
 
 
