@@ -88,4 +88,6 @@ These were some of the interesting aggregates that were found when grouping by r
 From this above we can see that winning teams take more dragons, heralds, and barons, but also more likely to take the first dragon compared to teams that lost. This makes sense because taking objectives helps teams get ahead in the game, and contributing to them being stronger than the enemy team.
 
 # NMAR Analysis 
-In looking at the columns of interest, the column golddiff at 25, seems to be 
+In looking at the columns of interest, the column 'firstdragon', could be NMAR because the value of firstdragon depends on itself. For exmaple, if firstdragon is missing, it is possible that the team did not take the first dragon due to their strategy or simply did not try and contest the dragon. In this case the missingness of firstdragon is dependent on the value of the column, which would make it NMAR.
+
+
