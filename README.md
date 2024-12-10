@@ -45,7 +45,6 @@ The next step was to query out each player's performance and only grab informati
 ### 3. Selecting Relevant Columns
 The last step towards cleaning the data was to query only the relevant columns that were listed above. This is what the cleaned Dataframe looks like:
 
-<div class="scrollable-table">
   
 | Side  | Result | First Dragon | Heralds | Dragons | Barons | GoldDiff10 | GoldDiff15 | GoldDiff20 | GoldDiff25 |
 |-------|--------|--------------|---------|---------|--------|------------|------------|------------|------------|
@@ -55,7 +54,6 @@ The last step towards cleaning the data was to query only the relevant columns t
 | Red   | 1      | 1            | 1       | 4       | 2      | 1619       | 1763       | 5140       | 7280       |
 | Blue  | 1      | 1            | 1       | 1       | 4      | -103       | 1191       | 1744       | 4145       |
 
-</div>
 # Univariate Analysis 
 The first analysis that was performed was looking at overall wins on blue side vs red side 
 <iframe
