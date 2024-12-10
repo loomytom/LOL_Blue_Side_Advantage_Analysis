@@ -4,7 +4,4 @@ plugins:
 
 include:
   - assets/css/custom.css
-  
-.scrollable-table {
-    overflow-x: auto;
-}
+
