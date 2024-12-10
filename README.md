@@ -43,7 +43,7 @@ The first step towards cleaning the data was to only grab data that is considere
 The next step was to query out each player's performance and only grab information regarding the team for each game. This was done by looking at the 'position' column in the dataframe and setting it to only grab position = 'team'.
 
 ### 3. Selecting Relevant Columns
-The last step towarsd cleaning the data was to query only the relevant columns that were listed above. This is what the cleaned Dataframe looks like:
+The last step towards cleaning the data was to query only the relevant columns that were listed above. This is what the cleaned Dataframe looks like:
 
 <div style="overflow-x: auto;">
   
