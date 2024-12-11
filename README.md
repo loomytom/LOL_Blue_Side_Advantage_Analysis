@@ -104,7 +104,7 @@ Below is a graph showing what the distribution of values look like:
   frameborder="0"
 ></iframe>
 
-From the graph, it can be seen that observed difference is much larger than any of the tests. The p-value was 0.0, lower than the 0.05 threshold, showing that it is statistically significant, rejecting the null, and the missingness of **golddiffat5** is related to the **barons** column. This makes sense because if there are a lot of baron's taken, the game likely ran longer than 25 minutes because the first baron is spawned in at 20 minutes. 
+From the graph, it can be seen that observed difference is much larger than any of the tests. The p-value was **0.0**, lower than the 0.05 threshold, showing that it is statistically significant, rejecting the null, and the missingness of **golddiffat5** is related to the **barons** column. This makes sense because if there are a lot of baron's taken, the game likely ran longer than 25 minutes because the first baron is spawned in at 20 minutes. 
 
 The second column tested with **golddiffat25** was the column **firstdragon**.
 
@@ -136,7 +136,7 @@ For the hypothesis test, the goal was to find out if there is a significant diff
 
 **Result P-Value**: 0.00
 
-**Conclusion**: From the hypothesis test, the resulting p-value was 0.00 which means that on a 0.05 level of significance, the difference between win rate on blue side and win rate on red side is statistically significant, and the null is rejected. In other words, the difference seen in the univariate analysis is likely not due to chance but that there are some other factors that are pushing the win rate of blue side teams to be higher than red side teams. These factors may include how the map is set up, or other columns like rift heralds taken, or frist dragon acquired.
+**Conclusion**: From the hypothesis test, the resulting p-value was **0.00** which means that on a 0.05 level of significance, the difference between win rate on blue side and win rate on red side is statistically significant, and the null is rejected. In other words, the difference seen in the univariate analysis is likely not due to chance but that there are some other factors that are pushing the win rate of blue side teams to be higher than red side teams. These factors may include how the map is set up, or other columns like rift heralds taken, or frist dragon acquired.
 
 # Prediction Problem 
 
@@ -176,6 +176,6 @@ The fairness analysis looks to see whether the model is fair for different group
 
 **Alternative Hypothesis**: The model is biased depending on whether or not the team has taken the first dragon or not. 
 
-The test statistic that was used to test this hypothesis was a absoulute difference of means. The final result was p-value = 0.0 which is statistically significant at the a = 0.05 level, rejecting the null. This means that the model is biased when predicting the team's side for teams that have taken the first dragon and the teams that haven't. 
+The test statistic that was used to test this hypothesis was a absoulute difference of means. The final result was **p-value = 0.0** which is statistically significant at the a = 0.05 level, rejecting the null. This means that the model is biased when predicting the team's side for teams that have taken the first dragon and the teams that haven't. 
 
 
