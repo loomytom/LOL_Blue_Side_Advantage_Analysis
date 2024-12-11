@@ -135,4 +135,31 @@ For the hypothesis test, the goal was to find out if there is a significant diff
 
 **Significance Level**: 0.05
 
+**Result P-Value**: 0.00
+
+**Conclusion**: From the hypothesis test, the resulting p-value was 0.00 which means that on a 0.05 level of significance, the difference between win rate on blue side and win rate on red side is statistically significant. In other words, the difference seen in the univariate analysis is likely not due to chance but that there are some other factors that are pushing the win rate of blue side teams to be higher than red side teams. These factors may include how the map is set up, or other columns like rift heralds taken, or frist dragon acquired.
+
+# Prediction Problem 
+
+From the hypothesis test, it was learned that the win rate differences between Blue side and Red side are likely not due to random chance but that there are factors that are affecting the win rate. These factors will be further analyzed in this section where a prediction model is built to predict what side a team is playing from depending on features like first dragon, heralds taken, barons taken, total dragons, and gold differential at 10 minutes. 
+
+This model can be built using classification algorithm techniques to answer the question, **Can team side be predicted based on other features of the game?** 
+
+For the data itself, it happened to work out that the data was already set, where binary columns where already encoded to either be a 1 or a 0 and the other columns could be directly used. The dataset was split into 75% training data and 25% test data, and the final results were evaluated using accuracy score and comparing the training and test sets. 
+
+The columns that were used for the prediction model are shown below:
+
+| Side  | Result | First Dragon | Heralds | Dragons | Barons | GoldDiff10 | GoldDiff25 |
+|-------|--------|--------------|---------|---------|--------|------------|------------|
+| Blue  | 0      | 0            | 2       | 1       | 0      | 1523       | 88         |
+| Red   | 1      | 1            | 0       | 3       | 0      | -1523      | -88        |
+| Blue  | 0      | 0            | 1       | 1       | 0      | -1619      | -7280      |
+| Red   | 1      | 1            | 1       | 4       | 2      | 1619       | 7280       |
+| Blue  | 1      | 1            | 1       | 1       | 4      | -103       | 4145       |
+
+# Baseline Model
+
+For the baseline model, the columns **Heralds** and **Dragons** were fit using a DecisionTreeClassifier. Both of these columns are quantitative, so they were passed through a StandardScalar() transformer which standardizes the data to have a mean of 0 and a standard deviation of 1. For the DecisionTreeClassifier, I had played around with several different values of tree depth and I ended up using a max depth of 10 as I found it provided the highest training and test accuracy scores. 
+
+Looking at the performance of the model, the training set had an accuracy of **0.612** and the test set had an accuracy of **0.601**. Overall, this was not a bad performance given the fact that Red Side and Blue Side are normally 50/50 metrics. Being able to get above a 10% difference from the normal was encouraging to see, and it meant that these 2 features that were being passed into the model were in fact somewhat useful in determining what side a team played from. However, there is still a lot of room to improve from this model as the accuracy is not extremely high, which means it still has a good chance of being incorrect for any given data. 
 
