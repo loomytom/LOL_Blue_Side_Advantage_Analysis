@@ -30,7 +30,6 @@ The data that was used for this analysis was pulled from the professional matche
 - <span style="background-color:#f0f8ff; border-radius:8px; padding:4px 8px; font-weight:bold; display:inline-block; box-shadow:0px 2px 4px rgba(0, 0, 0, 0.1);">heralds</span>: The 'heralds' column denotes how many rift heralds, another epic monster, each team takes.
 - <span style="background-color:#f0f8ff; border-radius:8px; padding:4px 8px; font-weight:bold; display:inline-block; box-shadow:0px 2px 4px rgba(0, 0, 0, 0.1);">barons</span>: The ‘barons’ column records how many barons, a third type of epic monster, each team takes.
 - <span style="background-color:#f0f8ff; border-radius:8px; padding:4px 8px; font-weight:bold; display:inline-block; box-shadow:0px 2px 4px rgba(0, 0, 0, 0.1);">golddiffat10</span>: This column represents how much gold a team is up by 10 minutes into the game. A positive value tells us that they are leading the other team by a certain amount, and a negative value means they are behind by that amount.
-- <span style="background-color:#f0f8ff; border-radius:8px; padding:4px 8px; font-weight:bold; display:inline-block; box-shadow:0px 2px 4px rgba(0, 0, 0, 0.1);">golddiffat15</span>: Similar to ‘golddiffat10’, this column specifically denotes the gold differential of a team at 15 minutes.
 - <span style="background-color:#f0f8ff; border-radius:8px; padding:4px 8px; font-weight:bold; display:inline-block; box-shadow:0px 2px 4px rgba(0, 0, 0, 0.1);">golddiffat20</span>: Similar to ‘golddiffat15’, this column specifically denotes the gold differential of a team at 20 minutes.
 - <span style="background-color:#f0f8ff; border-radius:8px; padding:4px 8px; font-weight:bold; display:inline-block; box-shadow:0px 2px 4px rgba(0, 0, 0, 0.1);">golddiffat25</span>: Similar to ‘golddiffat20’, this column specifically denotes the gold differential of a team at 25 minutes. A null value in the golddiffat25 suggests that the game ended before 25 minutes.
 
@@ -45,13 +44,13 @@ The next step was to query out each player's performance and only grab informati
 ### 3. Selecting Relevant Columns
 The last step towards cleaning the data was to query only the relevant columns that were listed above. This is what the cleaned Dataframe looks like:
 
-| Side  | Result | First Dragon | Heralds | Dragons | Barons | GoldDiff10 | GoldDiff15 | GoldDiff20 | GoldDiff25 |
-|-------|--------|--------------|---------|---------|--------|------------|------------|------------|------------|
-| Blue  | 0      | 0            | 2       | 1       | 0      | 1523       | 107        | -944       | 88         |
-| Red   | 1      | 1            | 0       | 3       | 0      | -1523      | -107       | 944        | -88        |
-| Blue  | 0      | 0            | 1       | 1       | 0      | -1619      | -1763      | -5140      | -7280      |
-| Red   | 1      | 1            | 1       | 4       | 2      | 1619       | 1763       | 5140       | 7280       |
-| Blue  | 1      | 1            | 1       | 1       | 4      | -103       | 1191       | 1744       | 4145       |
+| side   |   result |   firstdragon |   heralds |   dragons |   barons |   golddiffat10 |   golddiffat20 |   golddiffat25 |
+|:-------|---------:|--------------:|----------:|----------:|---------:|---------------:|---------------:|---------------:|
+| Blue   |        0 |             0 |         2 |         1 |        0 |           1523 |           -944 |             88 |
+| Red    |        1 |             1 |         0 |         3 |        0 |          -1523 |            944 |            -88 |
+| Blue   |        0 |             0 |         1 |         1 |        0 |          -1619 |          -5140 |          -7280 |
+| Red    |        1 |             1 |         1 |         4 |        2 |           1619 |           5140 |           7280 |
+| Blue   |        1 |             1 |         1 |         4 |        1 |           -103 |           1744 |           4145 |
 
 # Univariate Analysis 
 The first analysis that was performed was looking at overall wins on blue side vs red side 
@@ -105,7 +104,7 @@ Below is a graph showing what the distribution of values look like:
   frameborder="0"
 ></iframe>
 
-From the graph, it can be seen that observed difference is much larger than any of the tests. The p-value was 0.0, lower than the 0.05 threshold, showing that it is statistically significant, or in other words, the missingness of **golddiffat5** is related to the **barons** column. This makes sense because if there are a lot of baron's taken, the game likely ran longer than 25 minutes because the first baron is spawned in at 20 minutes. 
+From the graph, it can be seen that observed difference is much larger than any of the tests. The p-value was 0.0, lower than the 0.05 threshold, showing that it is statistically significant, rejecting the null, and the missingness of **golddiffat5** is related to the **barons** column. This makes sense because if there are a lot of baron's taken, the game likely ran longer than 25 minutes because the first baron is spawned in at 20 minutes. 
 
 The second column tested with **golddiffat25** was the column **firstdragon**.
 
@@ -121,7 +120,7 @@ Below is a graph showing what the distribution of values look like:
   frameborder="0"
 ></iframe>
 
-From the graph, it can be seen that observed difference is smaller than most of the permuted tests. The p-value was 0.928, above the 0.05 threshold, showing that it is not statistically significant, or in other words, the missingness of **golddiffat5** is not related to the **firstdragon** column. 
+From the graph, it can be seen that observed difference is smaller than most of the permuted tests. The p-value was 0.928, above the 0.05 threshold, showing that it is not statistically significant, the null is not rejected, and the missingness of **golddiffat5** is not related to the **firstdragon** column. 
 
 # Hypothesis Testing
 
@@ -137,7 +136,7 @@ For the hypothesis test, the goal was to find out if there is a significant diff
 
 **Result P-Value**: 0.00
 
-**Conclusion**: From the hypothesis test, the resulting p-value was 0.00 which means that on a 0.05 level of significance, the difference between win rate on blue side and win rate on red side is statistically significant. In other words, the difference seen in the univariate analysis is likely not due to chance but that there are some other factors that are pushing the win rate of blue side teams to be higher than red side teams. These factors may include how the map is set up, or other columns like rift heralds taken, or frist dragon acquired.
+**Conclusion**: From the hypothesis test, the resulting p-value was 0.00 which means that on a 0.05 level of significance, the difference between win rate on blue side and win rate on red side is statistically significant, and the null is rejected. In other words, the difference seen in the univariate analysis is likely not due to chance but that there are some other factors that are pushing the win rate of blue side teams to be higher than red side teams. These factors may include how the map is set up, or other columns like rift heralds taken, or frist dragon acquired.
 
 # Prediction Problem 
 
@@ -162,4 +161,21 @@ The columns that were used for the prediction model are shown below:
 For the baseline model, the columns **Heralds** and **Dragons** were fit using a DecisionTreeClassifier. Both of these columns are quantitative, so they were passed through a StandardScalar() transformer which standardizes the data to have a mean of 0 and a standard deviation of 1. For the DecisionTreeClassifier, I had played around with several different values of tree depth and I ended up using a max depth of 10 as I found it provided the highest training and test accuracy scores. 
 
 Looking at the performance of the model, the training set had an accuracy of **0.612** and the test set had an accuracy of **0.601**. Overall, this was not a bad performance given the fact that Red Side and Blue Side are normally 50/50 metrics. Being able to get above a 10% difference from the normal was encouraging to see, and it meant that these 2 features that were being passed into the model were in fact somewhat useful in determining what side a team played from. However, there is still a lot of room to improve from this model as the accuracy is not extremely high, which means it still has a good chance of being incorrect for any given data. 
+
+# Final Model
+
+For the final model, 2 more features were added which was **golddiffat10** and **firstdragon**. These columns were chosen to be added to the model because they are important in describing some of the hallmarks of blue side vs red side. On the map, the rift herald pit and the dragon pit is placed on opposite sides of the map, with Red side having direct access to dragon pit and blue side having direct access to herald pit. In order for red side to either take rift herald or blue side to take dragon, they would need to go around a wall to reach the pit, making it more difficult. Because of this difference, it would make sense as to why Blue Side teams take more rift heralds more often, becuase it is an easier objective for them to secure. This is also important to explain why **golddiffat10** might also be an strong feature to implement. Rift Herald is a monster that when slain, on average grants teams 400-500 gold when used. This objective is taken before 20 minutes because once 20 minutes into the game, the rift herald becomes baron. Therefore if blue side takes more rift heralds on average, it is also likely that they will have a gold lead early in the game because of it.
+
+The final model also uses RandomForestClassifier which is usually better than DecisionTreeClassifier because it is more robust against overfitting and is better at handling complex data. First Dragon is a column that is already in a binary form so it doesn't require any furthing encoding. For golddiffat10, a QuantileTransformer was used because it would help shape the distribution of gold differentials to prevent uneven or extreme shapes that may hurt the model. The hyperparameters that were chosen were maximum depth and number of estimators, and the intervals that were tested were 50-300 by 50 for the number of estimators, and 2-14 by 2 for the maximum depth. Ultimately, the GridSearch found that 50 estimators and a maximum depth of 6 performed the best for the model. The final model had a training accuracy of **0.641** and a test accuracy of **0.608**. Although the increase in accuracy between the base model and the final model is not very significant, the final model is more resistant to changes in the data that may cause the base model to overfit. Small increases in the model are also still important because when dealing with a variable that is 50/50 and balanced, it is often very difficult to make any differences in accuracy. 
+
+# Fairness Analysis
+
+The fairness analysis looks to see whether the model is fair for different groups. In the fairness analysis that was run, the question was **Does the model perform worse for teams that take the first dragon compared to teams that do not take the first dragon?**. A permutation test was used to test this and the null and alternative hypothesis are below.
+
+**Null Hypothesis**: There is no difference between the model's accuracy for teams that have taken the first dragon from the teams that haven't
+
+**Alternative Hypothesis**: The model is biased depending on whether or not the team has taken the first dragon or not. 
+
+The test statistic that was used to test this hypothesis was a absoulute difference of means. The final result was p-value = 0.0 which is statistically significant at the a = 0.05 level, rejecting the null. This means that the model is biased when predicting the team's side for teams that have taken the first dragon and the teams that haven't. 
+
 
